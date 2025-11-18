@@ -238,7 +238,7 @@ const translations = {
             accountHolderGroom: "PHAN CONG HAU",
             bankNameBride: "Vietcombank",
             accountBride: "1036060991",
-            accountHolderBride: "NGUYEN NGOC THI",
+            accountHolderBride: "PHAN CONG HAU",
             copyButton: "Copy Account",
             qrLabel: "Scan QR code to transfer",
             note: "Your presence is the most meaningful gift to us!"
