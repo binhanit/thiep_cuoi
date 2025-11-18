@@ -64,7 +64,7 @@ const translations = {
             restaurant: "",
             venueName: "TƯ GIA NHÀ TRAI",
             address: "Ấp Hòa Quý, Xã Hòa Khánh, Huyện Cái Bè, Tỉnh Tiền Giang",
-            time: "13:00 - 30/11/2025",
+            time: "08:00 - 30/11/2025",
             viewMap: "Xem Bản Đồ"
         },
         rsvp: {
@@ -122,7 +122,7 @@ const translations = {
             cardTitle: "THIỆP MỜI ĐÁM CƯỚI",
             infoTitle: "THÔNG TIN ĐÁM CƯỚI",
             weddingDate: "Chủ Nhật, 30 Tháng 11, 2025",
-            weddingTime: "13:00 Giờ",
+            weddingTime: "08:00 Giờ",
             quote: '"Hạnh phúc không phải là điểm đến, mà là hành trình \n Và chúng tôi đã tìm thấy bạn đồng hành"',
             groomFamily: "Gia Đình Chú Rể",
             groomFather: "Ông: Phan Văn Ri",
