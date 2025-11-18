@@ -1,0 +1,1178 @@
+/* Invitation Card Styles */
+
+:root {
+    --primary-cream: #f9f7f4;
+    --primary-beige: #e8dfd3;
+    --accent-pink: #df9fa0;
+    --accent-gold: #9a7949;
+    --text-dark: #1a1a1a;
+    --text-light: #666;
+    --white: #ffffff;
+    --overlay-dark: rgba(0, 0, 0, 0.5);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--primary-cream);
+    overflow-x: hidden;
+}
+
+/* ===========================
+   Language Switcher
+   =========================== */
+.language-switcher {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+/* ===========================
+   Music Player
+   =========================== */
+.music-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: var(--white);
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background: var(--accent-pink);
+}
+
+.music-toggle.playing {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.music-toggle.pulse-attention {
+    animation: pulseAttention 1s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(154, 121, 73, 0.7);
+}
+
+@keyframes pulseAttention {
+    0% {
+        box-shadow: 0 0 0 0 rgba(154, 121, 73, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(154, 121, 73, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(154, 121, 73, 0);
+    }
+}
+
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--white);
+    border: 2px solid var(--accent-gold);
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lang-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: var(--primary-cream);
+}
+
+.lang-flag {
+    font-size: 1.5rem;
+}
+
+.lang-text {
+    font-weight: 600;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--white);
+    border: 2px solid var(--accent-gold);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.language-switcher.active .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    border: none;
+    border-bottom: 1px solid var(--primary-beige);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.lang-option:last-child {
+    border-bottom: none;
+}
+
+.lang-option:hover {
+    background: var(--primary-cream);
+}
+
+.lang-option.active {
+    background: linear-gradient(135deg, rgba(223, 159, 160, 0.1), rgba(154, 121, 73, 0.1));
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* ===========================
+   Loading Screen
+   =========================== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+    color: var(--white);
+}
+
+.loading-heart {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+}
+
+.loading-text h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.loading-bar {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    background: var(--white);
+    border-radius: 10px;
+    animation: loadingProgress 2s ease-in-out;
+}
+
+@keyframes loadingProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* ===========================
+   Invitation Cover with Envelope
+   =========================== */
+.invitation-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: 100;
+}
+
+.invitation-cover.active {
+    opacity: 1;
+}
+
+.invitation-cover.opening {
+    animation: fadeOutCover 1.5s ease forwards;
+}
+
+@keyframes fadeOutCover {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.cover-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(223, 159, 160, 0.3) 0%, rgba(154, 121, 73, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920') center/cover;
+    filter: brightness(0.5);
+}
+
+/* ===========================
+   Bouncing Envelope
+   =========================== */
+.envelope-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: envelopeBounce 2s ease-in-out infinite;
+}
+
+@keyframes envelopeBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.envelope {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+/* Touch preview mirrors :hover state on mobile */
+.envelope.touch-preview {
+    transform: scale(1.05);
+}
+
+.envelope.clicked {
+    animation: envelopeOpen 1.5s ease forwards;
+}
+
+@keyframes envelopeOpen {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1) rotateY(0deg);
+    }
+    60% {
+        transform: scale(0.9) rotateY(180deg);
+    }
+    100% {
+        transform: scale(0) rotateY(360deg);
+        opacity: 0;
+    }
+}
+
+/* Envelope Body */
+.envelope-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f0e8 100%);
+    border-radius: 10px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--accent-gold);
+    overflow: hidden;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Envelope Flap */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, #dfa6a7 0%, #b89968 100%);
+    clip-path: polygon(0 0, 50% 60%, 100% 0);
+    transform-origin: 50% 0%;
+    z-index: 3;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope:hover .envelope-flap {
+    transform: rotateX(-180deg);
+}
+
+.envelope.touch-preview .envelope-flap {
+    transform: rotateX(-180deg);
+}
+
+.envelope.clicked .envelope-flap {
+    animation: flapOpen 1s ease forwards;
+}
+
+@keyframes flapOpen {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(-180deg);
+    }
+    100% {
+        transform: rotateX(-180deg);
+        opacity: 0;
+    }
+}
+
+/* Envelope Seal */
+.envelope-seal {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #e8b4b5 0%, #c99d61 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope:hover .envelope-seal {
+    opacity: 0;
+}
+
+.envelope.touch-preview .envelope-seal {
+    opacity: 0;
+}
+
+.envelope.clicked .envelope-seal {
+    animation: sealHide 3s ease forwards;
+}
+
+@keyframes sealHide {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.envelope-seal i {
+    color: var(--white);
+    font-size: 1.6rem;
+    animation: heartPulse 1.5s ease-in-out infinite;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Envelope Decoration */
+.envelope-decoration {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.stamp {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f7f4 100%);
+    border: 2px dashed var(--accent-gold);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.stamp i {
+    color: var(--accent-gold);
+    font-size: 1.6rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Letter Inside */
+.letter-inside {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 75%;
+    background: linear-gradient(to bottom, #ffffff 0%, #fdfcfa 100%);
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(154, 121, 73, 0.2);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope:hover .letter-inside {
+    opacity: 1;
+    visibility: visible;
+    top: -15%;
+    transform: translate(-50%, 0);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+    z-index: 9;
+}
+
+.envelope.touch-preview .letter-inside {
+    opacity: 1;
+    visibility: visible;
+    top: -15%;
+    transform: translate(-50%, 0);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+    z-index: 9;
+}
+
+.letter-text {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.letter-to {
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.to-wedding {
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.letter-names {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.letter-date {
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.guest-name {
+    margin-top: 0.25rem;
+    font-family: var(--font-heading, "Playfair Display", serif);
+    font-size: 1.1rem;
+    color: #1a1a1a;
+}
+
+/* Click Hint */
+.click-hint {
+    margin-top: 3rem;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-family: var(--font-heading);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: pulseHint 2s ease-in-out infinite;
+}
+
+@keyframes pulseHint {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Petals */
+.floating-petals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--white);
+    opacity: 0.3;
+    border-radius: 50% 0;
+    animation: float 10s infinite;
+}
+
+.petal:nth-child(1) { left: 10%; animation-delay: 0s; }
+.petal:nth-child(2) { left: 30%; animation-delay: 2s; }
+.petal:nth-child(3) { left: 50%; animation-delay: 4s; }
+.petal:nth-child(4) { left: 70%; animation-delay: 1s; }
+.petal:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===========================
+   Invitation Opened (Two Sides)
+   =========================== */
+.invitation-opened {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background: var(--primary-cream);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.invitation-opened.active {
+    display: block;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.invitation-container {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    perspective: 2000px;
+}
+
+.card-side {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    animation: cardReveal 1.2s ease both;
+}
+
+.card-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(135deg, transparent 10px, var(--white) 10px),
+        linear-gradient(-135deg, transparent 10px, var(--white) 10px);
+    background-position: top left, top right;
+    background-repeat: repeat-y;
+    background-size: 20px 20px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.left-side {
+    animation-delay: 0.2s;
+    border: 3px solid var(--primary-beige);
+    transform-origin: right center;
+}
+
+.right-side {
+    animation-delay: 0.4s;
+    border: 3px solid var(--accent-pink);
+    transform-origin: left center;
+}
+
+@keyframes cardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-beige);
+}
+
+.header-ornament {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    margin: 1rem auto;
+}
+
+.invitation-label {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--accent-gold);
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+/* Left Side Content */
+.couple-introduction {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.intro-ornament {
+    width: 100px;
+    height: 50px;
+    margin: 0 auto 2rem;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M10 25 Q 30 5, 50 25 T 90 25" stroke="%239a7949" stroke-width="2" fill="none"/></svg>') center/contain no-repeat;
+}
+
+.intro-ornament.bottom-ornament {
+    transform: rotate(180deg);
+    margin: 2rem auto 0;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.couple-names-display {
+    margin: 3rem 0;
+}
+
+.display-name {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin: 0.5rem 0;
+    font-weight: 700;
+}
+
+.display-name.groom {
+    color: var(--accent-gold);
+}
+
+.display-name.bride {
+    color: var(--accent-pink);
+}
+
+.name-separator {
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    color: var(--accent-pink);
+}
+
+.wedding-info-brief {
+    margin: 3rem 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.info-item i {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+}
+
+.card-quote {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--primary-cream);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.card-quote p {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+.card-quote i {
+    color: var(--accent-pink);
+    font-size: 1.5rem;
+}
+
+/* Right Side Content */
+.family-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.family-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-cream);
+    border-radius: 15px;
+    border: 2px dashed var(--primary-beige);
+}
+
+.family-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.family-section.groom-family .family-icon {
+    color: var(--accent-gold);
+}
+
+.family-section.bride-family .family-icon {
+    color: var(--accent-pink);
+}
+
+.family-section h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.parent-name {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.family-divider {
+    width: 50px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: 1rem auto;
+}
+
+.child-name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.family-heart {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--accent-pink);
+    animation: heartbeat 2s infinite;
+}
+
+.venue-brief {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-beige);
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.venue-icon {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.venue-brief h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.venue-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+}
+
+.venue-address {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.invitation-message {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-gold));
+    border-radius: 15px;
+    color: var(--white);
+}
+
+.invitation-message p {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Action Buttons */
+.action-buttons {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.action-btn {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.5rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-gold));
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(223, 159, 160, 0.4);
+}
+
+.secondary-btn {
+    background: var(--white);
+    color: var(--accent-gold);
+    border: 2px solid var(--accent-gold);
+}
+
+.secondary-btn:hover {
+    background: var(--accent-gold);
+    color: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(154, 121, 73, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .invitation-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .card-side {
+        min-height: auto;
+    }
+
+    .envelope {
+        width: 280px;
+        height: 175px;
+    }
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        top: 20px;
+        right: 20px;
+    }
+
+    .lang-toggle {
+        padding: 0.6rem 1rem;
+        gap: 0.4rem;
+    }
+
+    .lang-flag {
+        font-size: 1.3rem;
+    }
+
+    .lang-text {
+        font-size: 0.8rem;
+    }
+
+    .music-player {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .music-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .envelope {
+        width: 260px;
+        height: 160px;
+    }
+
+    .envelope-seal {
+        width: 45px;
+        height: 45px;
+        top: 20px;
+    }
+
+    .envelope-seal i {
+        font-size: 1.2rem;
+    }
+
+    .stamp {
+        width: 45px;
+        height: 45px;
+    }
+
+    .stamp i {
+        font-size: 1.2rem;
+    }
+
+    /* Hide these elements in mobile */
+    .letter-names,
+    .to-wedding,
+    .letter-date {
+        display: none;
+    }
+
+    /* Style guest name for mobile */
+    .guest-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0;
+        color: #1a1a1a;
+    }
+
+    .letter-text {
+        padding: 1.5rem 1rem;
+        margin: 0;
+        line-height: 1.5;
+        gap: 0.5rem;
+    }
+
+    .click-hint {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+
+    .display-name {
+        font-size: 2.5rem;
+    }
+
+    .card-side {
+        padding: 2rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .action-btn {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .envelope {
+        width: 240px;
+        height: 150px;
+    }
+
+    .envelope-seal {
+        width: 40px;
+        height: 40px;
+    }
+
+    .envelope-seal i {
+        font-size: 1rem;
+    }
+
+    .stamp {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stamp i {
+        font-size: 1rem;
+    }
+
+    /* Hide these elements in mobile - already hidden from 768px */
+    .letter-names,
+    .to-wedding,
+    .letter-date {
+        display: none;
+    }
+
+    /* Style guest name for smaller mobile */
+    .guest-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .letter-text {
+        padding: 1rem 0.75rem;
+        gap: 0.3rem;
+        line-height: 1.4;
+    }
+
+    .click-hint {
+        font-size: 0.9rem;
+    }
+
+    .display-name {
+        font-size: 2rem;
+    }
+
+    .invitation-opened {
+        padding: 2rem 1rem;
+    }
+
+    .card-side {
+        padding: 1.5rem;
+    }
+}
