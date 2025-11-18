@@ -276,7 +276,8 @@ const translations = {
 };
 
 // Current language (default: Vietnamese)
-let currentLang = localStorage.getItem('weddingLang') || 'vi';
+// Force Vietnamese to be the default language regardless of previous selections
+let currentLang = 'vi';
 
 // Initialize language switcher
 function initLanguage() {

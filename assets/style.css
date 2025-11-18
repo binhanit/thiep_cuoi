@@ -170,6 +170,10 @@ button {
     font-size: 1rem;
 }
 
+.lang-option[data-lang="en"] {
+    display: none;
+}
+
 .lang-option:last-child {
     border-bottom: none;
 }
