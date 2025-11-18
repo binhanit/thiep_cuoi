@@ -54,10 +54,10 @@ const galleryImages = [
         url: 'assets/13.jpg',
         alt: 'Wedding Photo 13'
     },
-    // {
-    //     url: 'assets/14.jpg',
-    //     alt: 'Wedding Photo 14'
-    // },
+    {
+        url: 'assets/14.jpg',
+        alt: 'Wedding Photo 14'
+    },
     // {
     //     url: 'assets/15.jpg',
     //     alt: 'Wedding Photo 15'

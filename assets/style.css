@@ -1530,6 +1530,8 @@ button {
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     background: var(--primary-beige);
+    aspect-ratio: 4 / 5;
+    min-height: 260px;
 }
 
 .gallery-item img {
