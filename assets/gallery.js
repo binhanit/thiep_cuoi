@@ -298,17 +298,42 @@ function addTouchSupport() {
     }
 }
 
-// Initialize everything when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
+// Defer gallery initialization until the section is visible
+function setupGalleryTrigger() {
+    const gallerySection = document.getElementById('gallery');
+    if (!gallerySection) return;
+
+    const initializeGallery = () => {
+        if (gallerySection.dataset.galleryInitialized === 'true') return;
+
         initGallery();
         addLightboxTransition();
         addTouchSupport();
         setupLazyLoading();
+        gallerySection.dataset.galleryInitialized = 'true';
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        initializeGallery();
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                initializeGallery();
+                observerInstance.disconnect();
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.15
     });
+
+    observer.observe(gallerySection);
 }
 
-// Initialize only the trigger on DOM ready
+// Initialize the gallery trigger on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
         setupGalleryTrigger();
@@ -325,5 +350,4 @@ if (typeof module !== 'undefined' && module.exports) {
         closeLightbox
     };
 }
-
 
