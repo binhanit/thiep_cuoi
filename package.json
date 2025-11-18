@@ -1,0 +1,27 @@
+{
+  "name": "thiep_cuoi_hau",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "fs-extra": "^11.3.2",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.44.1"
+  },
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://nguyenan97@github.com/binhanit/thiep_cuoi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binhanit/thiep_cuoi/issues"
+  },
+  "homepage": "https://github.com/binhanit/thiep_cuoi#readme"
+}
