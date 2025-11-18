@@ -1,4 +1,4 @@
-// RSVP Form with Google Sheets Integration
+﻿// RSVP Form with Google Sheets Integration
 
 /*
  * SETUP INSTRUCTIONS:
@@ -21,9 +21,6 @@ function doPost(e) {
       data.attendance,
       data.guestCount,
       data.isVegetarian,
-      data.wantMatchmaking,
-      data.gender,
-      data.socialLink,
       data.message
     ]);
 
@@ -46,49 +43,23 @@ function doPost(e) {
  */
 
 // IMPORTANT: Replace this with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwR4jEGFdS7mdV2UN8WPnaXpgvh5CpR0Z7rcfUT0q8ACAH6RQCMvlVn-qGcnXO6dAjqpA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbypq9e7xYTbjhZuGrzn4XqTgLqnf52g6GthY2tzXZGf7x0unVeLY8WOJqoJ6gU82pN0/exec';
 
 // Form elements
-let form, submitBtn, formStatus, wantMatchmakingCheckbox, matchmakingFields;
+let form, submitBtn, formStatus;
 
 // Initialize RSVP form
 function initRSVP() {
     form = document.getElementById('rsvpForm');
     submitBtn = document.getElementById('submitBtn');
     formStatus = document.getElementById('formStatus');
-    wantMatchmakingCheckbox = document.getElementById('wantMatchmaking');
-    matchmakingFields = document.getElementById('matchmakingFields');
 
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
 
-    // Add matchmaking toggle functionality
-    if (wantMatchmakingCheckbox && matchmakingFields) {
-        wantMatchmakingCheckbox.addEventListener('change', toggleMatchmakingFields);
-    }
-
-    // Add input validation
     addInputValidation();
-
-    // Prefill name from query/session if provided
     prefillGuestNameFromContext();
-}
-
-// Toggle matchmaking fields visibility
-function toggleMatchmakingFields() {
-    if (wantMatchmakingCheckbox.checked) {
-        matchmakingFields.style.display = 'block';
-        // Make fields required when visible
-        document.getElementById('gender').setAttribute('required', 'required');
-    } else {
-        matchmakingFields.style.display = 'none';
-        // Remove required attribute when hidden
-        document.getElementById('gender').removeAttribute('required');
-        // Clear values
-        document.getElementById('gender').value = '';
-        document.getElementById('socialLink').value = '';
-    }
 }
 
 // Handle form submission
@@ -100,26 +71,23 @@ async function handleSubmit(e) {
         return;
     }
 
-    // Get form data
+        // Get form data
     const formData = {
         name: document.getElementById('guestName').value.trim(),
         attendance: document.getElementById('attendance').value,
         guestCount: document.getElementById('guestCount').value || '1',
         isVegetarian: document.getElementById('isVegetarian').checked ? 'Có' : 'Không',
-        wantMatchmaking: document.getElementById('wantMatchmaking').checked ? 'Có' : 'Không',
-        gender: document.getElementById('wantMatchmaking').checked ? document.getElementById('gender').value : '',
-        socialLink: document.getElementById('wantMatchmaking').checked ? document.getElementById('socialLink').value.trim() : '',
         message: document.getElementById('message').value.trim()
     };
 
-    // Show loading state
+        // Show loading state
     setLoadingState(true);
 
     try {
         // Check if Google Script URL is configured
         if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
             // Fallback: Show success message without actually sending
-            console.warn('Google Script URL not configured. Form data:', formData);
+             console.warn('Google Script URL not configured. Form data:', formData);
             showStatus('success', 'Cảm ơn bạn đã xác nhận tham dự! (Demo mode - dữ liệu chưa được lưu)');
             form.reset();
             setLoadingState(false);
@@ -131,14 +99,14 @@ async function handleSubmit(e) {
             method: 'POST',
             mode: 'no-cors', // Required for Google Apps Script
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
         });
 
         // Note: With no-cors mode, we can't read the response
         // If the request completes without error, assume success
-        showStatus('success', 'Cảm ơn bạn đã xác nhận tham dự! Chúng tôi rất mong được gặp bạn.');
+        showStatus('success', 'Cảm ơn bạn đã xác nhận. Chúng tôi rất mong được gặp bạn.');
         form.reset();
 
         // Optional: Track with analytics
@@ -174,41 +142,7 @@ function validateForm() {
         return false;
     }
 
-    // Validate matchmaking fields if checkbox is checked
-    const wantMatchmaking = document.getElementById('wantMatchmaking').checked;
-    if (wantMatchmaking) {
-        const gender = document.getElementById('gender').value;
-        if (!gender) {
-            showStatus('error', 'Vui lòng chọn giới tính để tham gia "Tìm người yêu".');
-            document.getElementById('gender').focus();
-            return false;
-        }
-
-        const socialLink = document.getElementById('socialLink').value.trim();
-        if (socialLink && !isValidURL(socialLink)) {
-            showStatus('error', 'Link mạng xã hội không hợp lệ.');
-            document.getElementById('socialLink').focus();
-            return false;
-        }
-    }
-
     return true;
-}
-
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// URL validation
-function isValidURL(url) {
-    try {
-        new URL(url);
-        return true;
-    } catch (e) {
-        return false;
-    }
 }
 
 // Show status message
@@ -244,24 +178,8 @@ function setLoadingState(isLoading) {
 
 // Add real-time input validation
 function addInputValidation() {
-    const socialLinkInput = document.getElementById('socialLink');
+    if (!form) return;
 
-    if (socialLinkInput) {
-        socialLinkInput.addEventListener('blur', function() {
-            const value = this.value.trim();
-            if (value && !isValidURL(value)) {
-                this.style.borderColor = '#dc3545';
-                showStatus('error', 'Link mạng xã hội không hợp lệ. Vui lòng bắt đầu với http:// hoặc https://');
-            } else {
-                this.style.borderColor = '';
-                if (formStatus && formStatus.classList.contains('error')) {
-                    formStatus.style.display = 'none';
-                }
-            }
-        });
-    }
-
-    // Clear error on input
     const allInputs = form.querySelectorAll('input, select, textarea');
     allInputs.forEach(input => {
         input.addEventListener('input', function() {
@@ -330,10 +248,10 @@ function getQueryParam(name) {
 }
 
 function getFullNameFromContext() {
-    // First check query params
+        // First check query params
     const fromQuery = getQueryParam('fullName');
     if (fromQuery) {
-        // Save to session storage if from query params
+                // Save to session storage if from query params
         try {
             sessionStorage.setItem('fullName', fromQuery);
             sessionStorage.setItem('fullNameFromQuery', 'true');
@@ -342,7 +260,7 @@ function getFullNameFromContext() {
         }
         return fromQuery;
     }
-    
+        
     // Then check session storage (which may have been set from index.html)
     try {
         const fromStorage = sessionStorage.getItem('fullName');
@@ -351,7 +269,7 @@ function getFullNameFromContext() {
         // Ignore storage errors
     }
     
-    // Return null if no custom value, so form can remain empty or use default
+        // Return null if no custom value, so form can remain empty or use default
     return null;
 }
 
