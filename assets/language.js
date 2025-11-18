@@ -61,10 +61,10 @@ const translations = {
         },
         venue: {
             title: "Địa Điểm Tổ Chức",
-            restaurant: "Nhà Hàng Tiệc Cưới",
+            restaurant: "",
             venueName: "TƯ GIA NHÀ TRAI",
             address: "Ấp Hòa Quý, Xã Hòa Khánh, Huyện Cái Bè, Tỉnh Tiền Giang",
-            time: "11:00 - 29/11/2025",
+            time: "13:00 - 30/11/2025",
             viewMap: "Xem Bản Đồ"
         },
         rsvp: {
@@ -100,9 +100,9 @@ const translations = {
             bank: "Ngân hàng:",
             bankNameGroom: "VPBank",
             accountGroom: "186735439",
-            accountHolderGroom: "NGUYEN NGOC THIEN DINH",
-            bankNameBride: "Techcombank",
-            accountBride: "9983998399",
+            accountHolderGroom: "PHAN CONG HAU",
+            bankNameBride: "Vietcombank",
+            accountBride: "1036060991",
             accountHolderBride: "PHAN CONG HAU",
             copyButton: "Sao chép STK",
             qrLabel: "Quét mã QR để chuyển khoản",
@@ -122,7 +122,7 @@ const translations = {
             cardTitle: "THIỆP MỜI ĐÁM CƯỚI",
             infoTitle: "THÔNG TIN ĐÁM CƯỚI",
             weddingDate: "Chủ Nhật, 30 Tháng 11, 2025",
-            weddingTime: "11:00 Giờ",
+            weddingTime: "13:00 Giờ",
             quote: '"Hạnh phúc không phải là điểm đến, mà là hành trình \n Và chúng tôi đã tìm thấy bạn đồng hành"',
             groomFamily: "Gia Đình Chú Rể",
             groomFather: "Ông: Phan Văn Ri",
@@ -145,13 +145,13 @@ const translations = {
         },
         guestName: "Our Dear Guest(s)",
         names: {
-            groom: "Thien Dinh",
-            bride: "Thuy Linh",
-            coupleNames: "Thien Dinh & Thuy Linh"
+            groom: "CONG HAU",
+            bride: "NGOC THI",
+            coupleNames: "CONG HAU & NGOC THI"
         },
         hero: {
             wedding: "Wedding",
-            date: "November 29, 2025"
+            date: "November 30, 2025"
         },
         countdown: {
             title: "Countdown to Our Special Day",
@@ -164,10 +164,10 @@ const translations = {
             title: "Bride & Groom",
             groom: "Groom",
             bride: "Bride",
-            groomFather: "Son of: Mr. Nguyen Van Bao",
-            groomMother: "And: Mrs. Tran Thi Anh Nguyet",
-            brideFather: "Daughter of: Mr. Do Xuan Hue",
-            brideMother: "And: Mrs. Le Thi Phuong Thao"
+            groomFather: "Son of: Mr. Phan Van Ri",
+            groomMother: "And: Mrs. Phan Bach Mai",
+            brideFather: "Daughter of: Mr. Nguyen Van Thien",
+            brideMother: "And: Mrs. Luu Thi Muoi"
         },
         timeline: {
             title: "Our Love Story",
@@ -197,9 +197,9 @@ const translations = {
         },
         venue: {
             title: "Venue",
-            restaurant: "Wedding Reception",
-            venueName: "Asiana Bình Thạnh, L4, Diamond venue",
-            address: "45-47 Phan Dang Luu, ward 1, Phu Nhuan, Ho Chi Minh city",
+            restaurant: "",
+            venueName: "TƯ GIA NHÀ TRAI",
+            address: "Ấp Hòa Quý, Xã Hòa Khánh, Huyện Cái Bè, Tỉnh Tiền Giang",
             viewMap: "View Map"
         },
         rsvp: {
@@ -235,10 +235,10 @@ const translations = {
             bank: "Bank:",
             bankNameGroom: "VPBank",
             accountGroom: "186735439",
-            accountHolderGroom: "NGUYEN NGOC THIEN DINH",
-            bankNameBride: "Techcombank",
-            accountBride: "9983998399",
-            accountHolderBride: "DO THUY LINH",
+            accountHolderGroom: "PHAN CONG HAU",
+            bankNameBride: "Vietcombank",
+            accountBride: "1036060991",
+            accountHolderBride: "NGUYEN NGOC THI",
             copyButton: "Copy Account",
             qrLabel: "Scan QR code to transfer",
             note: "Your presence is the most meaningful gift to us!"
@@ -253,20 +253,20 @@ const translations = {
             respectfullyInvite2: "We cordially invite our Dear Guest(s) to our wedding",
             toOurWedding: "to the wedding of",
             clickHint: "Click the envelope to open invitation",
-            letterDate: "11.29.2025",
+            letterDate: "11.30.2025",
             cardTitle: "WEDDING INVITATION",
             infoTitle: "WEDDING INFORMATION",
-            weddingDate: "Saturday, November 29, 2025",
-            weddingTime: "11:00 AM",
+            weddingDate: "Sunday, November 30, 2025",
+            weddingTime: "01:00 PM",
             quote: '"Happiness is not a destination but a journey \n and on that journey, we’ve found our companion"',
             groomFamily: "Groom's Family",
-            groomFather: "Father: Mr. Nguyen Van Bao",
-            groomMother: "Mother: Mrs. Tran Thi Anh Nguyet",
-            groomSon: "Son: Nguyen Ngoc Thien Dinh",
+            groomFather: "Father: Mr. Phan Van Ri",
+            groomMother: "Mother: Mrs. Phan Bach Mai",
+            groomSon: "Son: Nguyen Cong Hau",
             brideFamily: "Bride's Family",
-            brideFather: "Father: Mr. Do Xuan Hue",
-            brideMother: "Mother: Mrs. Le Thi Phuong Thao",
-            brideDaughter: "Daughter: Do Thuy Linh",
+            brideFather: "Father: Mr. Nguyen Van Thien",
+            brideMother: "Mother: Mrs. Luu Thi Muoi",
+            brideDaughter: "Daughter: Nguyen Ngoc Thi",
             venueTitle: "Venue",
             presenceMessage: "Thank you for being part of our wedding day. Your presence is the most meaningful gift",
             confirmAttendance: "Confirm Attendance",

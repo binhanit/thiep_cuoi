@@ -54,22 +54,22 @@ const galleryImages = [
         url: 'assets/13.jpg',
         alt: 'Wedding Photo 13'
     },
-    {
-        url: 'assets/14.jpg',
-        alt: 'Wedding Photo 14'
-    },
-    {
-        url: 'assets/15.jpg',
-        alt: 'Wedding Photo 15'
-    },
-    {
-        url: 'assets/16.jpg',
-        alt: 'Wedding Photo 16'
-    },
-    {
-        url: 'assets/17.jpg',
-        alt: 'Wedding Photo 17'
-    },
+    // {
+    //     url: 'assets/14.jpg',
+    //     alt: 'Wedding Photo 14'
+    // },
+    // {
+    //     url: 'assets/15.jpg',
+    //     alt: 'Wedding Photo 15'
+    // },
+    // {
+    //     url: 'assets/16.jpg',
+    //     alt: 'Wedding Photo 16'
+    // },
+    // {
+    //     url: 'assets/17.jpg',
+    //     alt: 'Wedding Photo 17'
+    // },
     // {
     //     url: 'assets/18.jpg',
     //     alt: 'Wedding Photo 18'
