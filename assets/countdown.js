@@ -1,8 +1,8 @@
 // Countdown Timer
 // Set your wedding date here (YYYY, MM-1, DD, HH, MM, SS)
 // Note: Month is 0-indexed (0 = January, 11 = December)
-// November 29, 2025 at 12:00 PM
-const weddingDate = new Date(2025, 10, 30, 8, 0, 0).getTime();
+// November 29, 2025 at 11:00 AM
+const weddingDate = new Date(2025, 10, 30, 11, 0, 0).getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
