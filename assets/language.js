@@ -318,6 +318,7 @@ function initLanguage() {
 
 // Set language
 function setLanguage(lang) {
+    lang = currentLang; // Force Vietnamese as default
     currentLang = lang;
     localStorage.setItem('weddingLang', lang);
 
